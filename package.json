@@ -17,14 +17,13 @@
     "mocha": "^11.1.0"
   },
   "scripts": {
-    "start": "electron .",
+    "start": "electron --js-flags='--expose-gc' .",
     "test": "mocha",
     "test2": "mocha test2.js",
     "test3": "mocha test3.js",
     "doom": "mocha doom.js",
     "doom2": "mocha doom2.js",
     "doom3": "mocha doom3.js"
-
   },
   "keywords": [],
   "author": "",

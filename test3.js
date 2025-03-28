@@ -96,7 +96,7 @@ class HeartClickHelper {
     async clickRandomHearts()
     {
       // Find all heart icons on the screen
-      const heartIconsSelector = '//android.widget.ImageView[@resource-id="com.zhiliaoapp.musically:id/i1p"]'
+      const heartIconsSelector = '//android.widget.ImageView[@resource-id="com.zhiliaoapp.musically:id/i3y"]'
       const heartIcons = await this.driver.$$(heartIconsSelector)
     
       console.log(`Found ${heartIcons.length} heart icons on the screen`)
@@ -387,7 +387,7 @@ class FollowClickHelper {
 
         try {
             //checks if the creator tag is displayed, if not it will proceed replying (do NOT want to reply to creator)
-            const creatorTagXPath = `(//android.widget.TextView[@resource-id="com.zhiliaoapp.musically:id/csz"])`;
+            const creatorTagXPath = `(//android.widget.TextView[@resource-id="com.zhiliaoapp.musically:id/ctr" and @text="Creator"])`;
             const creatorTag = await this.driver.$(creatorTagXPath);
             await creatorTag.waitForDisplayed({ timeout: 1000 });
 
@@ -395,7 +395,7 @@ class FollowClickHelper {
 
 
             //reply to comments (that are not the creators comment)
-            const replyButtonsSelector = '//android.widget.TextView[@resource-id="com.zhiliaoapp.musically:id/ct9"]';
+            const replyButtonsSelector = '//android.widget.TextView[@resource-id="com.zhiliaoapp.musically:id/d4n"]';
             const replyIcons = await this.driver.$$(replyButtonsSelector);
         
             console.log(`Found ${replyIcons.length} heart icons on the screen`);
@@ -511,7 +511,7 @@ class CommentClickHelper {
     // Click the share button, wait a random time (1-2 seconds), and then click the copy link button
     async clickCommentButton() {
         // Step 2: Find the element that opens the comment section (using XPath)
-        const element = await this.driver.$('//android.widget.FrameLayout[@resource-id="com.zhiliaoapp.musically:id/cqt"]');
+        const element = await this.driver.$('//android.widget.FrameLayout[@resource-id="com.zhiliaoapp.musically:id/crl"]');
             
         // Step 3: Wait for the element to be displayed (the button that opens the comments)
         await element.waitForDisplayed({ timeout: 5000 });
@@ -670,7 +670,7 @@ describe('Engagement', function() {
 
             
         
-            const targetTextElement = await driver.$('(//android.view.ViewGroup[@resource-id="com.zhiliaoapp.musically:id/d23"])[2]//android.widget.Button[@resource-id="com.zhiliaoapp.musically:id/title"]');
+            const targetTextElement = await driver.$('(//android.view.ViewGroup[@resource-id="com.zhiliaoapp.musically:id/d2v"])[2]//android.widget.Button[@resource-id="com.zhiliaoapp.musically:id/title"]');
 
             let reachedEnd = false;  // Flag to indicate if we've reached the end of the list
 
@@ -708,7 +708,7 @@ describe('Engagement', function() {
                     // Follow a person each iteration
                     //await followClickHelper.randomFollow();
 
-                    //await followClickHelper.followForFollow();
+                    await followClickHelper.followForFollow();
 
                     // Possibly message the followed person to follow back
                 } catch (error) {
